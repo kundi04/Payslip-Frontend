@@ -1,12 +1,66 @@
-# React + Vite
+# Payslip Distribution System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application built with React + Vite for managing and distributing employee payslips.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Admin Dashboard
+- Employee management
+- Payslip generation and distribution
+- Attendance tracking
+- Message system
+- Analytics and reporting
 
-## Expanding the ESLint configuration
+### Employee Dashboard
+- View and download payslips
+- Track attendance
+- Message center
+- Personal settings
+- Profile management
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+- React 18
+- Vite
+- React Bootstrap
+- React Router
+- Particles.js
+- Neumorphic Design System
+
+## Getting Started
+
+1. Clone the repository
+```bash
+git clone [repository-url]
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start development server
+```bash
+npm run dev
+```
+
+## Project Structure
+```
+src/
+├── components/
+│   ├── Navbar.jsx
+│   ├── Sidebar.jsx
+│   ├── EmployeeSidebar.jsx
+│   └── PageWrapper.jsx
+├── pages/
+│   ├── Login.jsx
+│   ├── AdminDashboard.jsx
+│   ├── EmployeeDashboard.jsx
+│   └── Settings.jsx
+└── App.jsx
+```
+
+## Features in Development
+- [ ] Dark mode support
+- [ ] Multi-language support
+- [ ] Advanced analytics
+- [ ] Mobile application
