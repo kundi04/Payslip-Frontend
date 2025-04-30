@@ -989,3 +989,172 @@ body {
 .alert.dismissible {
   padding-right: 4rem;
 }
+
+/* Payslips Page Styles */
+.payslips-container {
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+.payslips-table {
+  margin-bottom: 0;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status-paid {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.payslip-detail .amount-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Responsive Styles for Payslips */
+@media (max-width: 768px) {
+  .payslips-container {
+    padding: 15px;
+  }
+
+  .payslips-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .table-responsive {
+    margin: 0 -15px;
+  }
+
+  .payslips-table th,
+  .payslips-table td {
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+
+  .status-badge {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 414px) {
+  .payslips-container {
+    padding: 10px;
+  }
+
+  .payslips-container h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .neumorphic-card {
+    padding: 15px !important;
+  }
+
+  .payslips-table th,
+  .payslips-table td {
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    padding: 2px 4px;
+  }
+
+  .modal-body {
+    padding: 15px;
+  }
+
+  .payslip-detail h4 {
+    font-size: 18px;
+  }
+
+  .amount-item {
+    font-size: 14px;
+  }
+}
+
+/* SuperUser Dashboard specific styles */
+.status-high {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.status-medium {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status-low {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-normal {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* Responsive adjustments for SuperUser Dashboard */
+@media (max-width: 768px) {
+  .dashboard-container .row {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  
+  .dashboard-container .col-md-3 {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .neumorphic-card {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 414px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+  
+  .dashboard-container h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .neumorphic-card h5 {
+    font-size: 16px;
+  }
+  
+  .neumorphic-card h2 {
+    font-size: 24px;
+  }
+  
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+

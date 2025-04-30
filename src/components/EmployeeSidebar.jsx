@@ -33,7 +33,11 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
 
   const menuItems = [
     { title: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/employee-dashboard" },
-    { title: "Payslips", icon: <Receipt size={20} />, path: "/my-payslips" },
+    { 
+      title: "Payslips", 
+      icon: <Receipt size={20} />, 
+      path: "/my-payslips"  // Make sure this matches
+    },
     { title: "Attendance", icon: <Calendar size={20} />, path: "/attendance" },
     { title: "Messages", icon: <MessageSquare size={20} />, path: "/messages" },
     { title: "Settings", icon: <Settings size={20} />, path: "/user-settings" },
