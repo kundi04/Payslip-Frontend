@@ -75,7 +75,7 @@ const MyPayslips = () => {
           </Col>
         </Row>
 
-        {/* Payslip Detail Modal */}
+       
         <Modal 
           show={showModal} 
           onHide={() => setShowModal(false)}

@@ -1158,3 +1158,75 @@ body {
   }
 }
 
+
+.payslip-card1 {
+  background: #ffffff;
+  width: 100vh !important;
+  align-self: center;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  color: var(--black);
+}
+
+/* Heading Styles */
+.payslip-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.payslip-heading-main {
+  color: #3F3D56; 
+}
+
+.payslip-heading-accent {
+  color: #652D90; 
+}
+
+.payslip-subtitle {
+  font-size: 0.9rem;
+  color:var(--red);
+  margin-bottom: 1.5rem;
+}
+
+
+.payslip-info {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+
+.payslip-divider {
+  border-top: 2px solid #652D90;
+  margin: 1rem 0;
+}
+
+
+.payslip-table {
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.payslip-table thead th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: 600;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.payslip-table tbody td {
+  padding: 6px 10px;
+  border: 1px solid #eee;
+}
+
+
+.payslip-italic {
+  font-style: italic;
+  color: #555;
+}
+
+
+
