@@ -37,8 +37,6 @@ const Sidebar = ({ open, toggleSidebar }) => {
        className: "add-employee-text"
   
     },
-    { title: "Pending Payslips", icon: <Receipt size={20} />, path: "/add-payslip" },
-    { title: "Messages", icon: <DollarSign size={20} />, path: "/add-payroll" },
     { title: "Help & Support", icon: <Shield size={20} />, path: "/security" },
     { title: "Logout", icon: <Clock size={20} />, path: "/logout" },
   ];
