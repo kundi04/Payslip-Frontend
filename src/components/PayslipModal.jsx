@@ -8,56 +8,101 @@ const PayslipModal = ({ show, onClose, payslip }) => {
   return (
     <Modal show={show} onHide={onClose} size="lg" centered>
       <Modal.Body className="neumorphic-card">
-        <div className="payslip-detail">
-          <h4 className="fw-bold mb-4">Payslip Details - {payslip.period}</h4>
+      <h4 className="payslip-title text-center mb-2">
+      <span className="payslip-heading-main">Statement of </span>
+      <span className="payslip-heading-accent">Earnings</span>
+    </h4>
+   
+    <p className="payslip-subtitle text-center">Strictly Confidential</p>
 
-          <Row className="mb-3">
-            <Col md={6}>
-              <p><strong>Issue Date:</strong> {payslip.issueDate}</p>
-              <p><strong>Status:</strong> {payslip.status}</p>
-            </Col>
-            <Col md={6}>
-              <p><strong>Employee ID:</strong> EMP001</p>
-              <p><strong>Department:</strong> Engineering</p>
-            </Col>
-          </Row>
+    <p className="payslip-info"><strong>User:</strong> Sarah Johnson</p>
+    <p className="payslip-info"><strong>Title:</strong> Direct Sales Agent (DSA)</p>
+    <p className="payslip-info"><strong>Date:</strong>{Date = "11/05/34"}</p>
+    <p className="payslip-info"><strong>Region:</strong> Harare</p>
 
-          <div className="payslip-amounts mb-4">
-            <h5 className="mb-3">Earnings & Deductions</h5>
-            <Row>
-              <Col md={6}>
-                <div className="amount-item">
-                  <span>Basic Salary</span>
-                  <span>${payslip.basicSalary}</span>
-                </div>
-                <div className="amount-item">
-                  <span>Allowances</span>
-                  <span>${payslip.allowances}</span>
-                </div>
-              </Col>
-              <Col md={6}>
-                <div className="amount-item text-danger">
-                  <span>Deductions</span>
-                  <span>-${payslip.deductions}</span>
-                </div>
-                <div className="amount-item fw-bold">
-                  <span>Net Pay</span>
-                  <span>${payslip.netPay}</span>
-                </div>
-              </Col>
-            </Row>
-          </div>
+    <hr className="payslip-divider" />
+    <p className="payslip-info"><strong>Currency:</strong> ZWL</p>
 
-          <div className="d-flex justify-content-end">
-            <Button variant="outline-secondary" className="me-2" onClick={onClose}>
-              Close
-            </Button>
-            <Button className="neumorphic-button empl-btn1">
-              <Download size={16} className="me-2" />
-              Download PDF
-            </Button>
-          </div>
-        </div>
+    <table className="table table-sm payslip-table">
+      <thead>
+        <tr>
+          <th>Benefits & Balances</th>
+          <th>Earnings</th>
+          <th>Deductions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>Basic Salary: $2000</td>
+          <td>Basic Salary Deduction: $50</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Commission: $300</td>
+          <td>Commission Deduction: $20</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em className="payslip-italic">Backpay (Basic):</em> $100</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em className="payslip-italic">Backpay (Commission):</em> $50</td>
+          <td>30% WHT: $90</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p className="payslip-info"><strong>Total Earnings (ZWL):</strong> $2450</p>
+    <p className="payslip-info"><strong>Total Deductions (ZWL):</strong> $160</p>
+    <p className="payslip-info"><strong>Net Pay (ZWL):</strong> $2290</p>
+
+    <hr className="payslip-divider" />
+    <p className="payslip-info"><strong>Currency:</strong> USD</p>
+
+    <table className="table table-sm payslip-table">
+      <thead>
+        <tr>
+          <th>Benefits & Balances</th>
+          <th>Earnings</th>
+          <th>Deductions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>Basic Salary: $500</td>
+          <td>Basic Salary Deduction: $10</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Commission: $100</td>
+          <td>Commission Deduction: $5</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em className="payslip-italic">Backpay (Basic):</em> $20</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><em className="payslip-italic">Backpay (Commission):</em> $10</td>
+          <td>30% WHT: $18</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p className="payslip-info"><strong>Total Earnings (USD):</strong> $630</p>
+    <p className="payslip-info"><strong>Total Deductions (USD):</strong> $33</p>
+    <p className="payslip-info"><strong>Net Pay (USD):</strong> $597</p>
+
+    <div className="text-end mt-3">
+      <Button className="payslip-button1 btn-sm" onClick={handleClose}>
+        Close
+      </Button>
+    </div>
       </Modal.Body>
     </Modal>
   );

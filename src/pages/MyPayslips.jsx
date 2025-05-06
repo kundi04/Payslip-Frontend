@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Table, Button, Modal, Row, Col } from 'react-bootstrap';
 import PageWrapper from '../components/PageWrapper';
+import EmployeeSidebar from '../components/EmployeeSidebar';
 import { Download } from 'lucide-react';
 import '../App.css';
 
@@ -22,6 +23,7 @@ const MyPayslips = () => {
 
   return (
     <PageWrapper>
+      <EmployeeSidebar/>
       <div className="payslips-container dashboard-container">
         <h1 className="mb-4 fw-bold">My Payslips</h1>
         
