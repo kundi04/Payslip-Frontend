@@ -586,7 +586,7 @@ a {
   padding: 10px;
   border: none;
   border-radius: 10px;
-  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+  /* box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff; */
   background: #e0e0e0;
 }
 
