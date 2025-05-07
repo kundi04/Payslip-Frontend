@@ -29,9 +29,9 @@ const ForgotPassword = () => {
                   id="email"
                   style={{ backgroundColor: "transparent", borderColor: "#ABE2F4" }}
                   type="name"
-                  placeholder="Enter your username"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your email"
+                  value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </Form.Group>
@@ -41,7 +41,7 @@ const ForgotPassword = () => {
                   id="password"
                   style={{ backgroundColor: "transparent", borderColor: "#ABE2F4" }}
                   type="password"
-                  placeholder="Enter your old password"
+                  placeholder="Enter your password"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required

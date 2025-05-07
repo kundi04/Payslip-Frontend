@@ -57,7 +57,7 @@ const Login = () => {
                     id="email"
                     style={{ backgroundColor: "transparent", borderColor: "#ABE2F4" }}
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email/Phone-Number"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
