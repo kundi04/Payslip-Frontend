@@ -9,10 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Employees from "./pages/Employees";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import EmployeeSidebar from "./components/EmployeeSidebar";
-// import Background from "./components/Background";
 import SuperUser from "./pages/SuperUser";
 import Settings from './pages/Settings';
-import MyPayslips from './pages/MyPayslips';
 import { ThemeProvider } from './context/ThemeContext';
 
 const AppContent = () => {
@@ -55,7 +53,6 @@ const AppContent = () => {
           <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
           <Route path="/employees" element={<Employees sidebarOpen={isSidebarOpen} />} />
           <Route path="/user-settings" element={<Settings />} />
-          <Route path="/my-payslips" element={<MyPayslips sidebarOpen={isSidebarOpen} />} />
           <Route path="/super-user" element={<SuperUser />} />
         </Routes>
       </div>
