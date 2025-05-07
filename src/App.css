@@ -4,8 +4,11 @@ body, html {
   padding: 0;
   height: 100%;
   font-family: 'Arial', sans-serif;
-  overflow-x: hidden;
+  overflow-x: hidden; 
+   /* background: linear-gradient(135deg, #4f7dc6 0%, #15366a 100%) !important;} */
 }
+
+
 
 
 :root{
@@ -23,7 +26,6 @@ body, html {
   inset: 0;
   z-index: -1;
 }
-
 
 
 @keyframes gradientShift {
@@ -77,6 +79,7 @@ body, html {
   margin: auto;
   height: 100vh;
   margin-top: -10px!important;
+
 }
 
 #card-title{
@@ -330,10 +333,10 @@ a {
 /* Admin Dashboard Styles */
 .dashboard-container {
   padding: 20px;
-  background-color: var(--light);
   height: 90vh;
   transition: margin-left 0.3s ease;
 }
+
 
 .dashboard-header {
   display: flex;

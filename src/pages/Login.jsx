@@ -41,7 +41,7 @@ const Login = () => {
     <Container fluid className="login-container">
       <ParticlesBackground options={defaultParticlesOptions} />
       <Row className="h-100">
-        <Col lg={6} className="login-right d-flex flex-column align-items-center justify-content-center">
+        <Col  className="login-right d-flex flex-column align-items-center justify-content-center">
           <div className="text-center">
             <img src="/images/omni_logo_white.png" alt="Logo" className="logo" />
           </div>
@@ -93,7 +93,7 @@ const Login = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col lg={6} className="login-left d-lg-block">
+        {/* <Col lg={6} className="login-left d-lg-block">
           <div
             style={{
               backgroundImage: "url(/images/170A1053.JPG)",
@@ -106,7 +106,7 @@ const Login = () => {
           >
             <div className="login-overlay-text"></div>
           </div>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

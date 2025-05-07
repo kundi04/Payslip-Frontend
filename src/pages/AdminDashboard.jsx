@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Row, Col, Table } from 'react-bootstrap';
+import ParticlesBackground from '../components/Particles';
 import '../App.css';
 import { 
   Users,  
@@ -23,9 +24,10 @@ const employeeData = [
 const Dashboard = ({ sidebarOpen }) => {
   return (
     <PageWrapper>
-    <div className={`dashboard-container ${sidebarOpen ? 'sidebar-open' : ''}`}>
+      <ParticlesBackground />
+    <div className={`dashboard-container ${sidebarOpen ? 'sidebar-open' : ''}`} id='ad-dash'>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className="h1 fw-bold">Welcome Admin Sarah</h1>
+        <h1 className="h1 fw-bold  ">Welcome Admin Sarah</h1>
         <div className="d-flex align-items-center">
           <Calendar className="me-2" size={20} />
           <span>{new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
@@ -34,7 +36,7 @@ const Dashboard = ({ sidebarOpen }) => {
 
       <Row className="g-3">
         <Col md={3}>
-          <Card className="neumorphic-card p-3">
+          <Card className="ad-card p-3">
             <Card.Body>
               <h5>Total Employees</h5>
               <h2>142</h2>
@@ -43,7 +45,7 @@ const Dashboard = ({ sidebarOpen }) => {
           </Card>
         </Col>
         <Col md={3}>
-          <Card className="neumorphic-card p-3">
+          <Card className="ad-card p-3">
             <Card.Body>
               <h5>Pending Payslips</h5>
               <h2>300</h2>
@@ -55,7 +57,7 @@ const Dashboard = ({ sidebarOpen }) => {
 
       <Row className="mt-4">
         <Col lg={12}>
-          <Card className="neumorphic-card p-3">
+          <Card className="ad-card p-3">
             <Card.Body>
               <h5>Recent Employees</h5>
               <Table striped bordered hover size="sm">
