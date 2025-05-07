@@ -138,7 +138,7 @@ const Settings = () => {
         
         <Row>
           <Col lg={6} md={12}>
-            <Card className="neumorphic-card p-4 mb-4">
+            <Card className="neumorphic-card p-4 mb-4 ">
               <h5 className="mb-3">Account Settings</h5>
               {feedback.message && (
                 <Alert 
@@ -206,7 +206,7 @@ const Settings = () => {
               </Form>
             </Card>
           </Col>
-
+{/* 
           <Col lg={6} md={12}>
             <Card className="neumorphic-card p-4 mb-4">
               <h5 className="mb-3">Preferences</h5>
@@ -249,7 +249,7 @@ const Settings = () => {
                 </Button>
               </Form>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
       </div>
     </PageWrapper>

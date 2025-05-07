@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import SuperUserSidebar from '../components/SuperUserSidebar';
 import PageWrapper from '../components/PageWrapper';
 import { Card, Row, Col } from 'react-bootstrap';
@@ -12,7 +11,6 @@ const SuperUser = () => {
 
   return (
     <PageWrapper>
-      <Navbar toggleSidebar={toggleSidebar} />
       <SuperUserSidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
 
       <div className={`content ${sidebarOpen ? 'content-shift' : ''}`}>

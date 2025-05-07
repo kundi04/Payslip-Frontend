@@ -80,7 +80,7 @@ const Dashboard = ({ sidebarOpen }) => {
               </Table>
             </Card.Body>
           </Card>
-          <button className='view-all'>View All</button>
+          <button className='view-all' onClick={"/employees"}>View All</button>
         </Col>
       </Row>
     </div>
