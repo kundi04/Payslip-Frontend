@@ -6,6 +6,7 @@ import { style } from "framer-motion/client";
 const Sidebar = ({ open, toggleSidebar }) => {
   const sidebarRef = useRef(null);
   const [showPopup, setShowPopup] = useState(false);
+  window.openAddEmployeePopup = () => setShowPopup(true);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -27,7 +28,6 @@ const Sidebar = ({ open, toggleSidebar }) => {
     { title: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/admin-dashboard" },
     { title: "Employees", icon: <Users size={20} />, path: "/employees" },
     { title: "Payslips", icon: <Receipt size={20} />, path: "/payslips" },
-    { title: "Add Employee", icon: <Users size={20} />, onClick: () => setShowPopup(true), className: "add-employee-text" },
     { title: "Settings", icon: <Settings size={20} />, path: "/settings" },
     { title: "Logout", icon: <Clock size={20} />, path: "/logout" },
   ];
