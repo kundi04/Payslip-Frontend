@@ -436,6 +436,11 @@ a {
   box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
 }
 
+.add-employee{
+  width: 50vh;
+  margin: 20px 0;
+}
+
 
 /* Responsive Design */
 @media (max-width: 1024px) {
