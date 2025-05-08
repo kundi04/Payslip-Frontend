@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Card, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import PageWrapper from '../components/PageWrapper';
-import { useTheme } from '../context/ThemeContext';
 import '../App.css';
 
 const Settings = () => {
-  const { theme, setTheme } = useTheme();
   const [feedback, setFeedback] = useState({ message: '', type: '' });
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,10 +15,7 @@ const Settings = () => {
     language: 'en',
   });
 
-  const handleThemeChange = (e) => {
-    const newTheme = e.target.value;
-    setTheme(newTheme);
-  };
+ 
 
   // Add confirm password validation
   const validatePasswords = (newPassword, confirmPassword) => {

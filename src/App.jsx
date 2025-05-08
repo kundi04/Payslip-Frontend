@@ -11,7 +11,6 @@ import EmployeeDashboard from "./pages/EmployeeDashboard";
 import EmployeeSidebar from "./components/EmployeeSidebar";
 import SuperUser from "./pages/SuperUser";
 import Settings from './pages/Settings';
-import { ThemeProvider } from './context/ThemeContext';
 import AdminSettings from './pages/AdminSettings';
 
 const AppContent = () => {
@@ -27,10 +26,11 @@ const AppContent = () => {
     location.pathname.startsWith("/employees") || 
     location.pathname.startsWith("/employee-dashboard") || 
     location.pathname.startsWith("/my-payslips") || 
-    location.pathname.startsWith("/user-settings");
+    location.pathname.startsWith("/user-settings") ||
+    location.pathname.startsWith("/admin-settings");
 
   const handleClick = (e) => {
-    // Close only if click is outside the sidebar
+
     if (isSidebarOpen && !e.target.closest('.sidebar')) {
       setIsSidebarOpen(false);
     }
@@ -64,11 +64,11 @@ const AppContent = () => {
 
 function App() {
   return (
-    <ThemeProvider>
+    
       <Router>
         <AppContent />
       </Router>
-    </ThemeProvider>
+
   );
 }
 
