@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
 import { LayoutDashboard, Users, DollarSign, Receipt, Clock, Settings, Shield, Heading } from "lucide-react";
+;
 import { style } from "framer-motion/client";
 
 const Sidebar = ({ open, toggleSidebar }) => {
@@ -28,8 +29,8 @@ const Sidebar = ({ open, toggleSidebar }) => {
     { title: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/admin-dashboard" },
     { title: "Employees", icon: <Users size={20} />, path: "/employees" },
     { title: "Payslips", icon: <Receipt size={20} />, path: "/payslips" },
-    { title: "Settings", icon: <Settings size={20} />, path: "/settings" },
-    { title: "Logout", icon: <Clock size={20} />, path: "/logout" },
+    { title: "Settings", icon: <Settings size={20} />, path: "/admin-settings" },
+    { title: "Logout", path: "/logout" },
   ];
 
   return (
