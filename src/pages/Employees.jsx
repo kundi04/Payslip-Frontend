@@ -1,4 +1,3 @@
-// src/pages/Employees.jsx
 import React from 'react';
 import { Card, Table } from 'react-bootstrap';
 import PageWrapper from '../components/PageWrapper';

@@ -2,11 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
 import { 
   LayoutDashboard, 
-  Calendar, 
-  Receipt, 
-  FileText, 
-  MessageSquare, 
-  HelpCircle, 
   Settings, 
   LogOut 
 } from "lucide-react";
@@ -33,13 +28,6 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
 
   const menuItems = [
     { title: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/employee-dashboard" },
-    { 
-      title: "Payslips", 
-      icon: <Receipt size={20} />, 
-      path: "/my-payslips"  // Make sure this matches
-    },
-    { title: "Attendance", icon: <Calendar size={20} />, path: "/attendance" },
-    { title: "Messages", icon: <MessageSquare size={20} />, path: "/messages" },
     { title: "Settings", icon: <Settings size={20} />, path: "/user-settings" },
     { title: "Logout", icon: <LogOut size={20} />, path: "/logout" },
   ];
@@ -68,46 +56,7 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
         ))}
       </Nav>
 
-      {showRequestLeave && (
-        <div className="popup-overlay">
-          <div className="neumorphic-card popup-card">
-            <h3>Request Leave</h3>
-            <form>
-              <div className="form-group">
-                <label>Leave Type</label>
-                <select className="form-control">
-                  <option>Annual Leave</option>
-                  <option>Sick Leave</option>
-                  <option>Personal Leave</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Start Date</label>
-                <input type="date" className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>End Date</label>
-                <input type="date" className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>Reason</label>
-                <textarea className="form-control" rows="3" placeholder="Brief description..."></textarea>
-              </div>
-              <button
-                type="submit"
-                className="neumorphic-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowRequestLeave(false); // Close the pop-up on submit
-                }}
-              >
-                Submit Request
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+    
     </div>
   );
 };
