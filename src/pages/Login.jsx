@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Card, Col, Container, Row } from "react-bootstrap";
 import ParticlesBackground, { defaultParticlesOptions } from "../components/Particles";
-import "../App.css";
+import { authService } from "../api";
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [email, setEmail] = useState("");
