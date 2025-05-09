@@ -41,11 +41,11 @@ const Login = () => {
     <Container fluid className="login-container">
       <ParticlesBackground options={defaultParticlesOptions} />
       <Row className="h-100">
-        <Col lg={6} className="login-right d-flex flex-column align-items-center justify-content-center">
-          <div className="text-center">
+        <Col  className="login-right d-flex flex-column align-items-center justify-content-center">
+          <div className="text-center ">
             <img src="/images/omni_logo_white.png" alt="Logo" className="logo" />
           </div>
-          <Card className="login-card">
+          <Card className="login-card ">
             <Card.Body className="card-body">
               <Card.Title id="card-title">Login</Card.Title>
               <Card.Subtitle className="mb-2 text-muted" id="p-title">
@@ -57,7 +57,7 @@ const Login = () => {
                     id="email"
                     style={{ backgroundColor: "transparent", borderColor: "#ABE2F4" }}
                     type="email"
-                    placeholder="Email"
+                    placeholder="Email/Phone-Number"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -93,20 +93,7 @@ const Login = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col lg={6} className="login-left d-lg-block">
-          <div
-            style={{
-              backgroundImage: "url(/images/170A1053.JPG)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: "100vh",
-              width: "100%",
-            }}
-            className="login-overlay"
-          >
-            <div className="login-overlay-text"></div>
-          </div>
-        </Col>
+    
       </Row>
     </Container>
   );

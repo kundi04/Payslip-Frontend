@@ -4,8 +4,11 @@ body, html {
   padding: 0;
   height: 100%;
   font-family: 'Arial', sans-serif;
-  overflow-x: hidden;
+  overflow-x: hidden; 
+   /* background: rgb(64, 64, 65) !important; */
 }
+
+
 
 
 :root{
@@ -23,7 +26,6 @@ body, html {
   inset: 0;
   z-index: -1;
 }
-
 
 
 @keyframes gradientShift {
@@ -77,6 +79,7 @@ body, html {
   margin: auto;
   height: 100vh;
   margin-top: -10px!important;
+
 }
 
 #card-title{
@@ -140,9 +143,23 @@ a {
   height: 100%;
   margin-top: 20px;
   top: 10px;
-  left: 500px;
+  left: 800px;
+
 }
 
+.login-card-f .form-control::placeholder {
+  color: #ffffff;
+  opacity: 0.6; 
+}
+
+
+.logout-link {
+  color: white !important;
+}
+
+.logout-link .lucide {
+  color: white !important; 
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -330,10 +347,10 @@ a {
 /* Admin Dashboard Styles */
 .dashboard-container {
   padding: 20px;
-  background-color: var(--light);
   height: 90vh;
   transition: margin-left 0.3s ease;
 }
+
 
 .dashboard-header {
   display: flex;
@@ -361,8 +378,7 @@ a {
 .neumorphic-card {
   background: #ececec !important; 
   border-radius: 20px;
-  box-shadow: 8px 8px 15px #a3a3a3, 
-              -8px -8px 15px #ffffff; 
+  box-shadow: 10px 10px 20px #ffffff, -10px -10px 20px #ffffff;  
   transition: all 0.3s ease;
 }
 
@@ -431,6 +447,11 @@ a {
   color: #000000 ;
   background-color: #b9d0f4;
   box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.add-employee{
+  width: 50vh;
+  margin: 20px 0;
 }
 
 
@@ -882,61 +903,7 @@ employee dashboard */
   }
 }
 
-/* dark mode CSS */
-[data-theme='dark'] {
-  --bg-primary: #1a2233;
-  --text-primary: #ffffff;
-  --card-bg: #8490a7;
-  --border-color: #3d4c6b;
-  --input-bg: #232b3d;
-  --btn-bg: #3d4c6b;
-  --accent-color: #78b0e4;
-  --hover-color: #5d8bb8;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-}
 
-[data-theme='light'] {
-  --bg-primary: #f0f2f5;
-  --text-primary: #333333;
-  --card-bg: #ffffff;
-  --border-color: #ABE2F4;
-  --input-bg: #ffffff;
-  --btn-bg: #ffffff;
-  --accent-color: #4169aa;
-  --hover-color: #305088;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Update your existing styles to use CSS variables */
-body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  transition: all 0.3s ease;
-}
-
-.neumorphic-card {
-  background-color: var(--card-bg) !important;
-  border: 1px solid var(--border-color) !important;
-}
-
-.settings-input {
-  background-color: var(--input-bg) !important;
-  color: var(--text-primary) !important;
-  border-color: var(--border-color) !important;
-}
-
-.neumorphic-button {
-  background-color: var(--btn-bg) !important;
-  color: var(--text-primary) !important;
-}
-
-.neumorphic-button:hover {
-  background-color: var(--hover-color) !important;
-}
-
-.interactive-element {
-  color: var(--accent-color);
-}
 
 /* Alert Styles */
 .alert {
