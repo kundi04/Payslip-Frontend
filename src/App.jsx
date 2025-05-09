@@ -27,11 +27,22 @@ const AppContent = () => {
     location.pathname.startsWith("/employee-dashboard") || 
     location.pathname.startsWith("/my-payslips") || 
     location.pathname.startsWith("/user-settings") ||
-    location.pathname.startsWith("/admin-settings");
+    location.pathname.startsWith("/admin-settings")||
+    location.pathname.startsWith("/super-user");
+
+
 
   const handleClick = (e) => {
 
     if (isSidebarOpen && !e.target.closest('.sidebar')) {
+      setIsSidebarOpen(false);
+    }
+
+    if (isSidebarOpen && !e.target.closest('.employee-sidebar')) {
+      setIsSidebarOpen(false);
+    }
+
+    if (isSidebarOpen && !e.target.closest('.SuperUserSidebar')) {
       setIsSidebarOpen(false);
     }
   };
@@ -54,7 +65,7 @@ const AppContent = () => {
           <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
           <Route path="/employees" element={<Employees sidebarOpen={isSidebarOpen} />} />
           <Route path="/user-settings" element={<Settings />} />
-          <Route path="/super-user" element={<SuperUser />} />
+          <Route path="/super-user" element={<SuperUser sidebarOpen={isSidebarOpen}/>} />
           <Route path="/admin-settings" element={<AdminSettings />} />
         </Routes>
       </div>

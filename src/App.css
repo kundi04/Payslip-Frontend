@@ -143,8 +143,15 @@ a {
   height: 100%;
   margin-top: 20px;
   top: 10px;
-  left: 500px;
+  left: 800px;
+
 }
+
+.login-card-f .form-control::placeholder {
+  color: #ffffff;
+  opacity: 0.6; 
+}
+
 
 .logout-link {
   color: white !important;
