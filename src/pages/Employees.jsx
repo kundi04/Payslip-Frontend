@@ -18,6 +18,8 @@ const employeeData = [
 const Employees = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const [showSingleAddModal, setShowSingleAddModal] = useState(false);
+
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -28,12 +30,10 @@ const [selectedFile, setSelectedFile] = useState(null);
 
 
 // single add
-  const handleSingleAdd = () => {
-    if (window.openAddEmployeePopup) {
-      window.openAddEmployeePopup();
-    }
-    handleCloseModal();
-  };
+const handleSingleAdd = () => {
+  setShowSingleAddModal(true);
+  handleCloseModal();
+};
 
 
   // bulk add
@@ -65,19 +65,24 @@ const [selectedFile, setSelectedFile] = useState(null);
       <div className="dashboard-container">
         <h1 className="mb-4 fw-bold">All Employees</h1>
 
-        <Card className='neumorphic-card add-employee'>
-          <Card.Body className='d-flex justify-content-between align-items-center p-3'>
-            <div>
-              <FaPlus />
-              <h2 className='fs-4'>Add a new employee to the system</h2>
-              <div className='d-flex gap-3'>
-                <button className='p-1 btn btn-secondary' onClick={handleOpenModal}>
-                  Add Employee
-                </button>
-              </div>
-            </div>
-          </Card.Body>
-        </Card>
+        <Card className='neumorphic-card add-employee position-relative'>
+  {/* Icon in top-right corner */}
+  <div className='icon-top-right'>
+    <FaPlus />
+  </div>
+
+  <Card.Body className='d-flex justify-content-between align-items-center p-3'>
+    <div>
+      <h2 className='fs-4'>Add a new employee to the system</h2>
+      <div className='d-flex gap-3'>
+        <button className='p-1 btn btn-secondary' onClick={handleOpenModal}>
+          Add Employee
+        </button>
+      </div>
+    </div>
+  </Card.Body>
+</Card>
+
 
         <Card className="neumorphic-card p-3 bg-light">
           <Card.Body>
@@ -163,6 +168,41 @@ const [selectedFile, setSelectedFile] = useState(null);
     </Button>
   </Modal.Footer>
 </Modal>
+
+<Modal show={showSingleAddModal} onHide={() => setShowSingleAddModal(false)} centered>
+  <Modal.Header closeButton>
+    <Modal.Title>Add Single Employee</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    {/* Replace with actual form fields */}
+    <form>
+      <div className="mb-3">
+        <label className="form-label">Name</label>
+        <input type="text" className="form-control" placeholder="Enter name" />
+      </div>
+      <div className="mb-3">
+        <label className="form-label">Department</label>
+        <input type="text" className="form-control" placeholder="Enter department" />
+      </div>
+      <div className="mb-3">
+        <label className="form-label">Status</label>
+        <select className="form-select">
+          <option value="Active">Active</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+    </form>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShowSingleAddModal(false)}>
+      Cancel
+    </Button>
+    <Button variant="primary">
+      Save Employee
+    </Button>
+  </Modal.Footer>
+</Modal>
+
       </div>
     </PageWrapper>
   );
