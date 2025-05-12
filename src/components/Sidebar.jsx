@@ -54,7 +54,6 @@ const Sidebar = ({ open, toggleSidebar }) => {
 
   return (
     <div className={`sidebar ${open ? "open" : ""}`} ref={sidebarRef}>
-      <img src="/images/omni_logo_white.png" alt="logo" className="admin-logo" />
       <Nav className="flex-column mt-5">
       {menuItems.map((item, index) => (
  <Nav.Item key={index} className={`nav-item ${item.className || ""}`}>

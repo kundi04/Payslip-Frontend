@@ -12,6 +12,7 @@ import EmployeeSidebar from "./components/EmployeeSidebar";
 import SuperUser from "./pages/SuperUser";
 import Settings from './pages/Settings';
 import AdminSettings from './pages/AdminSettings';
+import EmployeeDetails from "./components/EmployeeDetails";
 
 const AppContent = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -67,6 +68,7 @@ const AppContent = () => {
           <Route path="/user-settings" element={<Settings />} />
           <Route path="/super-user" element={<SuperUser sidebarOpen={isSidebarOpen}/>} />
           <Route path="/admin-settings" element={<AdminSettings />} />
+          <Route path="/employee-details/:id" element={<EmployeeDetails />} />
         </Routes>
       </div>
     </div>
