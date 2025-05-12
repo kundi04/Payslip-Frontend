@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EmployeeSidebar from '../components/EmployeeSidebar';
 import PageWrapper from '../components/PageWrapper';
 import Lottie from '../components/LottieAnimation';
-import { Button, Table, Modal, Card, Row } from 'react-bootstrap';
+import { Button, Table, Modal, Card, Row , Col} from 'react-bootstrap';
 import { Download } from 'lucide-react';
 
 const EmployeeDashboard = () => {
@@ -10,7 +10,10 @@ const EmployeeDashboard = () => {
   const [selectedPayslip, setSelectedPayslip] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleShow = () => setShowModal(true);
+const handleView = (payslip) => {
+  setSelectedPayslip(payslip); // Set the selected payslip data
+  setShowModal(true); // Show the modal
+};
   const handleClose = () => setShowModal(false);
   const toggleSidebar = (state) => setSidebarOpen(state !== undefined ? state : !sidebarOpen);
   const [filterMonth, setFilterMonth] = useState("All");
@@ -19,14 +22,14 @@ const EmployeeDashboard = () => {
 
 
   const motivationalQuotes = [
-    "🌟 Success is the sum of small efforts, repeated day in and day out. — R. Collier",
-    "🚀 Don’t watch the clock; do what it does. Keep going. — Sam Levenson",
-    "💡 The future depends on what you do today. — Mahatma Gandhi",
-    "🔥 Your limitation—it’s only your imagination.",
-    "💪 Push yourself, because no one else is going to do it for you.",
-    "🌈 Great things never come from comfort zones.",
-    "🏁 Dream it. Wish it. Do it.",
-    "🧠 Don’t stop when you’re tired. Stop when you’re done."
+    " Success is the sum of small efforts, repeated day in and day out. — R. Collier",
+    " Don’t watch the clock; do what it does. Keep going. — Sam Levenson",
+    " The future depends on what you do today. — Mahatma Gandhi",
+    " Your limitation—it’s only your imagination.",
+    " Push yourself, because no one else is going to do it for you.",
+    " Great things never come from comfort zones.",
+    " Dream it. Wish it. Do it.",
+    " Don’t stop when you’re tired. Stop when you’re done."
   ];
   
  
@@ -38,22 +41,23 @@ useEffect(() => {
 
 useEffect(() => {
   const interval = setInterval(() => {
-    const targetDate = new Date('2025-05-25'); // replace with actual payslip date
+    const targetDate = new Date('2025-05-25T00:00:00'); // Set the correct time if needed
     const now = new Date();
     const distance = targetDate - now;
 
     if (distance <= 0) {
-      setCountdown("Payslips are here!");
+      setCountdown("00:00");
       clearInterval(interval);
       return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / 1000 / 60) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
+    const totalSeconds = Math.floor(distance / 1000);
+const hours = Math.floor(totalSeconds / 3600);
+const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
 
-    setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s left`);
+const formatted = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    setCountdown(formatted);
   }, 1000);
 
   return () => clearInterval(interval);
@@ -79,24 +83,25 @@ useEffect(() => {
         <div className="employee-dashboard p-3">
 
           {/* Welcome Header */}
-          <h2 className="fw-bold text-black mb-4">Welcome Sarah Johnson</h2>
+        <Row className="mb-4 align-items-center">
+  {/* Left Column */}
+  <Col md={6}>
+    <h2 className="fw-bold text-black mb-3">Welcome Sarah Johnson</h2>
 
-          {/* Payslip Card */}
-          <Row className="mb-4  ">
-          <Card className="mb-4 p-4 shadow-lg border-0 rounded-4 text-white" style={{ background: '#6f42c1' }}>
-  <h5 className="mb-3 fst-italic">{quote}</h5>
-  <div className="d-flex justify-content-between align-items-center">
-    <span className="fw-bold fs-6">⏳ Payslip arrives in:</span>
-    <span className="fs-5 fw-semibold badge bg-light text-dark px-3 py-2">{countdown}</span>
-  </div>
-</Card>
+    <Card className="mb-3 p-4 border-0 rounded-4 text-white" style={{ backgroundColor: 'transparent' }}>
+      <h5 className="mb-3 fst-italic quote">{quote}</h5>
+      <h2 className="fw-bold countdown-text" style={{ fontFamily: 'monospace', letterSpacing: '1px' }}>
+        ⏳ {countdown}
+      </h2>
+    </Card>
+  </Col>
 
+  {/* Right Column */}
+  <Col md={6} className="text-center">
+    <Lottie />
+  </Col>
+</Row>
 
-          <div  className='lottie-row' >
-            <Lottie/>
-       
-         </div>
-          </Row>
           {/* Payslips Table */}
           <Card className="neumorphic-card p-4">
             <div className="table-responsive">

@@ -656,14 +656,22 @@ employee dashboard */
 }
 
 .lottie-row{
-
  width: 40% !important;
-
   margin-left: 1000px;
   margin-top: -100px !important;
   background-color: none !important;
 }
 
+.countdown-text{
+  font-size: 30px;
+  color: var(--black);
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.quote{
+  color: var(--black);
+}
 
 .div-one h2 {
   padding-left: 45px;
@@ -739,7 +747,7 @@ employee dashboard */
   width: 250px;
   height: 100vh;
   background-color: var(--primary);
-  z-index: 1030;
+  z-index: 1050;
   transition: left 0.3s ease;
   overflow-y: auto;
   padding: 20px 10px;
