@@ -11,6 +11,7 @@ import EmployeeDashboard from "./pages/EmployeeDashboard";
 import EmployeeSidebar from "./components/EmployeeSidebar";
 import SuperUser from "./pages/SuperUser";
 import Settings from './pages/Settings';
+import Payslips from "./pages/Payslips"
 import AdminSettings from './pages/AdminSettings';
 
 const AppContent = () => {
@@ -25,7 +26,7 @@ const AppContent = () => {
     location.pathname.startsWith("/admin-dashboard") || 
     location.pathname.startsWith("/employees") || 
     location.pathname.startsWith("/employee-dashboard") || 
-    location.pathname.startsWith("/my-payslips") || 
+    location.pathname.startsWith("/payslips") || 
     location.pathname.startsWith("/user-settings") ||
     location.pathname.startsWith("/admin-settings")||
     location.pathname.startsWith("/super-user");
@@ -67,6 +68,8 @@ const AppContent = () => {
           <Route path="/user-settings" element={<Settings />} />
           <Route path="/super-user" element={<SuperUser sidebarOpen={isSidebarOpen}/>} />
           <Route path="/admin-settings" element={<AdminSettings />} />
+          <Route path="/payslips" element={<Payslips/>} />
+
         </Routes>
       </div>
     </div>
