@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EmployeeSidebar from '../components/EmployeeSidebar';
 import PageWrapper from '../components/PageWrapper';
-import { Button, Table, Modal, Card } from 'react-bootstrap';
+import Lottie from '../components/LottieAnimation';
+import { Button, Table, Modal, Card, Row } from 'react-bootstrap';
 import { Download } from 'lucide-react';
 
 const EmployeeDashboard = () => {
@@ -12,17 +13,63 @@ const EmployeeDashboard = () => {
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
   const toggleSidebar = (state) => setSidebarOpen(state !== undefined ? state : !sidebarOpen);
+  const [filterMonth, setFilterMonth] = useState("All");
+  const [countdown, setCountdown] = useState('');
+  const [quote, setQuote] = useState("");
+
+
+  const motivationalQuotes = [
+    "🌟 Success is the sum of small efforts, repeated day in and day out. — R. Collier",
+    "🚀 Don’t watch the clock; do what it does. Keep going. — Sam Levenson",
+    "💡 The future depends on what you do today. — Mahatma Gandhi",
+    "🔥 Your limitation—it’s only your imagination.",
+    "💪 Push yourself, because no one else is going to do it for you.",
+    "🌈 Great things never come from comfort zones.",
+    "🏁 Dream it. Wish it. Do it.",
+    "🧠 Don’t stop when you’re tired. Stop when you’re done."
+  ];
+  
+ 
+
+useEffect(() => {
+  const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+  setQuote(motivationalQuotes[randomIndex]);
+}, []);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    const targetDate = new Date('2025-05-25'); // replace with actual payslip date
+    const now = new Date();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      setCountdown("Payslips are here!");
+      clearInterval(interval);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / 1000 / 60) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s left`);
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);
+
 
   const payslipData = [
-    { id: 1, period: 'May 2025', issueDate: '25/05/2025',  status: 'Paid' },
+    { id: 1, period: 'May 2025', issueDate: '25/05/2025', status: 'Paid' },
     { id: 2, period: 'April 2025', issueDate: '25/04/2025', status: 'Paid' },
-    { id: 3, period: 'March 2025', issueDate: '25/03/2025', status: 'Paid' },
+    { id: 3, period: 'March 2025', issueDate: '25/03/2025', status: 'Pending' },
   ];
-
-  const handleView = (payslip) => {
-    setSelectedPayslip(payslip);
-    handleShow();
-  };
+  
+  const filteredPayslips = filterMonth === "All" 
+    ? payslipData 
+    : payslipData.filter(p => p.period.includes(filterMonth));
+  
 
   return (
     <PageWrapper>
@@ -35,14 +82,21 @@ const EmployeeDashboard = () => {
           <h2 className="fw-bold text-black mb-4">Welcome Sarah Johnson</h2>
 
           {/* Payslip Card */}
-          {/* <div className="neumorphic-card mb-4 p-4" id="att-card">
-            <h5 className="fw-bold fs-1">May 2025 Payslip</h5>
-            <p className='fs-5'>View your payslip for the month of May 2025</p>
-            <Button className="btn-sm empl-btn1" onClick={handleShow}>
-              View Full Details
-            </Button>
-          </div> */}
+          <Row className="mb-4  ">
+          <Card className="mb-4 p-4 shadow-lg border-0 rounded-4 text-white" style={{ background: '#6f42c1' }}>
+  <h5 className="mb-3 fst-italic">{quote}</h5>
+  <div className="d-flex justify-content-between align-items-center">
+    <span className="fw-bold fs-6">⏳ Payslip arrives in:</span>
+    <span className="fs-5 fw-semibold badge bg-light text-dark px-3 py-2">{countdown}</span>
+  </div>
+</Card>
 
+
+          <div  className='lottie-row' >
+            <Lottie/>
+       
+         </div>
+          </Row>
           {/* Payslips Table */}
           <Card className="neumorphic-card p-4">
             <div className="table-responsive">
