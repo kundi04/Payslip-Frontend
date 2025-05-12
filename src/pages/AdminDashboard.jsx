@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Row, Col, Table, Form, Button } from 'react-bootstrap';
-import avatar from '../../public/images/avatar.png';
+import avatar from '../images/avatar.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import CalendarComponent from 'react-calendar';
 import {
@@ -46,7 +46,7 @@ const Dashboard = ({ sidebarOpen }) => {
     <PageWrapper>
      
       <div className={`dashboard-container ${sidebarOpen ? 'sidebar-open' : ''}`} id="ad-dash">
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-4 main-dash">
           <h1 className="h1 fw-bold">Welcome Admin Sarah</h1>
 
           <div

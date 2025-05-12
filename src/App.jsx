@@ -70,6 +70,7 @@ const AppContent = () => {
           <Route path="/super-user" element={<SuperUser sidebarOpen={isSidebarOpen}/>} />
           <Route path="/admin-settings" element={<AdminSettings />} />
           <Route path="/employee-details/:id" element={<EmployeeDetails />} />
+          <Route path="/payslips" element={<Payslips />} />
         </Routes>
       </div>
     </div>

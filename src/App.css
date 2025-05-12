@@ -10,7 +10,6 @@ body, html {
 
 
 
-
 :root{
   --primary: #153d77;
   --red: #ff0000;
@@ -24,7 +23,7 @@ body, html {
 .particles-background {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 
@@ -42,12 +41,6 @@ body, html {
 
 
 /* Left side styling */
-.login-left, .login-right {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
 
 .login-overlay {
   position: absolute;
@@ -61,14 +54,8 @@ body, html {
   padding: 16px;
 }
 
-.login-overlay-text {
-  color: var(--white);
-}
-
-/* Right side styling */
-.login-right {
-  height: 100vh;
-  padding: 20px;
+.login-container{
+  background: none !important;
 }
 
 .login-card {
@@ -356,6 +343,7 @@ a {
 
 
 .dashboard-container {
+ 
   padding: 20px;
   height: 90vh;
   transition: margin-left 0.3s ease;
@@ -604,6 +592,27 @@ a {
   border-radius: 10px;
   /* box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff; */
   background: #e0e0e0;
+}
+
+.icon-top-right{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #83adf0;
+  border: 1px solid #070707;
+  border-radius: 20px;
+}
+
+.add-employee-btn{
+  background-color: var(--primary) !important;
+  color: var(--white) !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 
