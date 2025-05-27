@@ -677,6 +677,10 @@ employee dashboard */
   padding-left: 45px;
 }
 
+.em-row{
+  margin-top: -150px !important;
+}
+
 #payslip-card {
   height: 20vh;
   width: 25%;
