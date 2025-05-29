@@ -1,24 +1,23 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
-import { 
-  LayoutDashboard, 
-  Calendar, 
-  Receipt, 
-  FileText, 
-  MessageSquare, 
-  HelpCircle, 
-  Settings, 
-  LogOut 
-} from "lucide-react";
+import { LayoutDashboard, Settings, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const EmployeeSidebar = ({ open, toggleSidebar }) => {
   const sidebarRef = useRef(null);
-  const [showRequestLeave, setShowRequestLeave] = useState(false);
+  const navigate = useNavigate();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const userProfile = {
+    name: "Employee User",
+    email: "employee@example.com",
+    image: "/images/default-profile.png"
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        toggleSidebar(false); // Close the sidebar if clicked outside
+        toggleSidebar(false);
       }
     };
 
@@ -31,21 +30,27 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
     };
   }, [open, toggleSidebar]);
 
+  const handleLogoutClick = () => {
+    setShowLogoutModal(true);
+  };
+
+  const confirmLogout = () => {
+    setShowLogoutModal(false);
+    navigate("/"); // Redirect to login page
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutModal(false);
+  };
+
   const menuItems = [
     { title: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/employee-dashboard" },
-    { title: "Payslips", icon: <Receipt size={20} />, path: "/my-payslips" },
-    { title: "Attendance", icon: <Calendar size={20} />, path: "/attendance" },
-    { title: "Messages", icon: <MessageSquare size={20} />, path: "/messages" },
     { title: "Settings", icon: <Settings size={20} />, path: "/user-settings" },
-    { title: "Logout", icon: <LogOut size={20} />, path: "/logout" },
+    { title: "Logout", icon: <LogOut size={20} />, onClick: handleLogoutClick, className: "logout-link text-white" },
   ];
 
   return (
-    <div
-      className={`sidebar ${open ? "open" : ""}`}
-      ref={sidebarRef}
-    >
-      <img src="/images/omni_logo_white.png" alt="logo" className="admin-logo"/>
+    <div className={`sidebar ${open ? "open" : ""}`} ref={sidebarRef}>
       <Nav className="flex-column mt-5">
         {menuItems.map((item, index) => (
           <Nav.Item key={index} className={`nav-item ${item.className || ""}`}>
@@ -55,7 +60,7 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
                 {item.title}
               </Nav.Link>
             ) : (
-              <span className="nav-link" onClick={item.onClick}>
+              <span className={`nav-link ${item.className || ""}`} onClick={item.onClick}>
                 <span className="me-2">{item.icon}</span>
                 {item.title}
               </span>
@@ -64,43 +69,18 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
         ))}
       </Nav>
 
-      {showRequestLeave && (
+      {/* Logout Confirmation Modal */}
+      {showLogoutModal && (
         <div className="popup-overlay">
-          <div className="neumorphic-card popup-card">
-            <h3>Request Leave</h3>
-            <form>
-              <div className="form-group">
-                <label>Leave Type</label>
-                <select className="form-control">
-                  <option>Annual Leave</option>
-                  <option>Sick Leave</option>
-                  <option>Personal Leave</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Start Date</label>
-                <input type="date" className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>End Date</label>
-                <input type="date" className="form-control" />
-              </div>
-              <div className="form-group">
-                <label>Reason</label>
-                <textarea className="form-control" rows="3" placeholder="Brief description..."></textarea>
-              </div>
-              <button
-                type="submit"
-                className="neumorphic-button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowRequestLeave(false); // Close the pop-up on submit
-                }}
-              >
-                Submit Request
-              </button>
-            </form>
+          <div className="neumorphic-card popup-card text-center p-4">
+            <img src={userProfile.image} alt="Profile" className="rounded-circle mb-3" style={{ width: "80px", height: "80px" }} />
+            <h5>{userProfile.name}</h5>
+            <p>{userProfile.email}</p>
+            <p>Are you sure you want to log out?</p>
+            <div className="d-flex justify-content-center gap-3">
+              <button className="btn btn-danger" onClick={confirmLogout}>Confirm</button>
+              <button className="btn btn-secondary" onClick={cancelLogout}>Cancel</button>
+            </div>
           </div>
         </div>
       )}

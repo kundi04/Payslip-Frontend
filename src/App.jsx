@@ -8,9 +8,12 @@ import ForgotPassword from "./pages/ForgotPassword";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Employees from "./pages/Employees";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
-import Background from "./components/Background";
-
-
+import EmployeeSidebar from "./components/EmployeeSidebar";
+import SuperUser from "./pages/SuperUser";
+import Settings from './pages/Settings';
+import Payslips from "./pages/Payslips"
+import AdminSettings from './pages/AdminSettings';
+import EmployeeDetails from "./components/EmployeeDetails";
 
 const AppContent = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -20,52 +23,68 @@ const AppContent = () => {
     setIsSidebarOpen((prevState) => (state !== undefined ? state : !prevState));
   };
 
-  const showLayout = location.pathname.startsWith("/admin-dashboard") || location.pathname.startsWith("/employees");
+  const showLayout = 
+    location.pathname.startsWith("/admin-dashboard") || 
+    location.pathname.startsWith("/employees") || 
+    location.pathname.startsWith("/employee-dashboard") || 
+    location.pathname.startsWith("/payslips") || 
+    location.pathname.startsWith("/user-settings") ||
+    location.pathname.startsWith("/admin-settings")||
+    location.pathname.startsWith("/super-user");
+
 
 
   const handleClick = (e) => {
-    // Close only if click is outside the sidebar
+
     if (isSidebarOpen && !e.target.closest('.sidebar')) {
+      setIsSidebarOpen(false);
+    }
+
+    if (isSidebarOpen && !e.target.closest('.employee-sidebar')) {
+      setIsSidebarOpen(false);
+    }
+
+    if (isSidebarOpen && !e.target.closest('.SuperUserSidebar')) {
       setIsSidebarOpen(false);
     }
   };
 
   return (
-   
     <div className="app-container" onClick={handleClick}>
       {showLayout && <Navbar toggleSidebar={toggleSidebar} />}
-      {showLayout && (
-        <Sidebar
-          open={isSidebarOpen}
-          toggleSidebar={toggleSidebar}
-        />
-      )}
-    
-      <div
-        className={`content ${isSidebarOpen ? 'content-shift' : ''}`}
-    >
+      {showLayout && location.pathname.startsWith("/employee-dashboard") ? (
+        <EmployeeSidebar open={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      ) : showLayout ? (
+        <Sidebar open={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      ) : null}
+
+      <div className={`content ${isSidebarOpen ? 'content-shift' : ''}`}>
         <Routes>
-        <Route path="/" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
           <Route path="/employees" element={<Employees sidebarOpen={isSidebarOpen} />} />
-
+          <Route path="/user-settings" element={<Settings />} />
+          <Route path="/super-user" element={<SuperUser sidebarOpen={isSidebarOpen}/>} />
+          <Route path="/admin-settings" element={<AdminSettings />} />
+          <Route path="/employee-details/:id" element={<EmployeeDetails />} />
+          <Route path="/payslips" element={<Payslips />} />
         </Routes>
-       
       </div>
     </div>
   );
 };
 
-
-const App = () => {
+function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    
+      <Router>
+        <AppContent />
+      </Router>
+
   );
-};
+}
 
 export default App;

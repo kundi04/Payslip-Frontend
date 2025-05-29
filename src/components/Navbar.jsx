@@ -12,13 +12,13 @@ const Navbar = ({ toggleSidebar }) => {
   return (
     <BootstrapNavbar expand="lg" className="border-bottom px-4 py-2 navbar">
       <div className="d-flex align-items-center">
-      <Button variant="light" className="me-2" onClick={toggleSidebar}>
+      <Button  className="me-2 hamburger" onClick={toggleSidebar}>
   <AlignJustify size={24} />
 </Button>
-        <img src="/images/omni_logo_white.png" alt="Logo" className=" admin-logo" />
+        <img src="/images/logo-blue.png" alt="Logo" className=" admin-logo" />
       </div>
       <Nav className="ms-auto d-flex align-items-center">
-        <Form className="d-none d-md-flex position-relative me-3">
+        <Form className="d-none d-md-flex position-relative me-3 ">
           <Search className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" size={20} />
           <FormControl type="text" placeholder="Search..." className="ps-5" />
         </Form>
