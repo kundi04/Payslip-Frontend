@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 const LogoutModal = ({ show, handleClose, handleLogout, user }) => {
   return (
-    <Modal show={show} onHide={handleClose} centered>
+    <Modal
+      show={show}
+      onHide={handleClose}
+      centered
+      container={document.body} // Ensure the modal is rendered in the body
+    >
       <Modal.Header closeButton>
         <Modal.Title>Confirm Logout</Modal.Title>
       </Modal.Header>

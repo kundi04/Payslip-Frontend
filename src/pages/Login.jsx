@@ -39,7 +39,7 @@ const Login = () => {
 
 
   return (
-    <Container fluid className="login-container">
+    <Container fluid className="login-container ">
       <ParticlesBackground options={defaultParticlesOptions} />
       <Row className="h-100">
         <Col  className="login-right d-flex flex-column align-items-center justify-content-center">

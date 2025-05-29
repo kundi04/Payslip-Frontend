@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Row, Col, Table, Form, Button } from 'react-bootstrap';
-import avatar from '../../public/images/avatar.png';
+import avatar from '../images/avatar.png';
 import { motion, AnimatePresence } from 'framer-motion';
 import CalendarComponent from 'react-calendar';
 import {
@@ -12,12 +12,12 @@ import PageWrapper from '../components/PageWrapper';
 import '../App.css';
 
 const employeeData = [
-  { id: 1, name: 'John Doe', department: 'Engineering', status: 'Active', lastpayslip: '2025-02-25' },
+  { id: 1, name: 'John Doe', department: 'Engineering', status: 'Active', lastpayslip: '2025-01-25' },
   { id: 2, name: 'Jane Smith', department: 'Marketing', status: 'Pending', lastpayslip: '2025-02-25' },
-  { id: 3, name: 'Michael Johnson', department: 'HR', status: 'Active', lastpayslip: '2025-02-25' },
-  { id: 4, name: 'Sarah Williams', department: 'Finance', status: 'Pending', lastpayslip: '2025-02-25' },
-  { id: 5, name: 'Alice Brown', department: 'IT', status: 'Active', lastpayslip: '2025-02-25' },
-  { id: 6, name: 'Robert Green', department: 'Logistics', status: 'Pending', lastpayslip: '2025-02-25' },
+  { id: 3, name: 'Michael Johnson', department: 'HR', status: 'Active', lastpayslip: '2025-03-25' },
+  { id: 4, name: 'Sarah Williams', department: 'Finance', status: 'Pending', lastpayslip: '2025-12-25' },
+  { id: 5, name: 'Alice Brown', department: 'IT', status: 'Active', lastpayslip: '2025-10-25' },
+  { id: 6, name: 'Robert Green', department: 'Logistics', status: 'Pending', lastpayslip: '2025-11-25' },
 ];
 
 const Dashboard = ({ sidebarOpen }) => {
@@ -46,7 +46,7 @@ const Dashboard = ({ sidebarOpen }) => {
     <PageWrapper>
      
       <div className={`dashboard-container ${sidebarOpen ? 'sidebar-open' : ''}`} id="ad-dash">
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-4 main-dash">
           <h1 className="h1 fw-bold">Welcome Admin Sarah</h1>
 
           <div

@@ -76,12 +76,12 @@ const Employees = () => {
                 <div>
                   <h2 className='fs-4'>Add a new employee to the system</h2>
                   <div className='d-flex gap-3'>
-                    <button className='p-1 btn btn-secondary' onClick={handleOpenModal}>
+                    <button className='p-1 btn add-employee-btn' onClick={handleOpenModal}>
                       Add Employee
                     </button>
                   </div>
                 </div>
-                <div className='icon-top-right'> {/* Positioning the plus icon */}
+                <div className='icon-top-right'>
                   <FaPlus size={24} />
                 </div>
               </Card.Body>
