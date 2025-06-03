@@ -7,7 +7,7 @@ const LogoutModal = ({ show, handleClose, handleLogout, user }) => {
       show={show}
       onHide={handleClose}
       centered
-      container={document.body} // Ensure the modal is rendered in the body
+     
     >
       <Modal.Header closeButton>
         <Modal.Title>Confirm Logout</Modal.Title>

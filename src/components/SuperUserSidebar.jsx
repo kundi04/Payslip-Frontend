@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 
-const SuperUserSidebar = ({ open, toggleSidebar }) => {
+const SuperUserSidebar = ({ open, toggleSidebar,onLogoutClick }) => {
   const navigate = useNavigate();
   const sidebarRef = useRef(null);
 
@@ -44,14 +44,13 @@ const SuperUserSidebar = ({ open, toggleSidebar }) => {
     { 
       title: "Logout", 
       icon: <LogOut size={20} />, 
-      onClick: () => handleLogout(navigate),
+     onClick: onLogoutClick,
       className: "logout-link" 
     }
   ];
 
   return (
     <div className={`sidebar ${open ? "open" : ""}`} ref={sidebarRef}>
-      <img src="/images/omni_logo_white.png" alt="logo" className="admin-logo"/>
       <Nav className="flex-column mt-5">
         {menuItems.map((item, index) => (
           <Nav.Item key={index} className={`nav-item ${item.className || ""}`}>

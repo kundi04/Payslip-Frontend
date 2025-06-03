@@ -2,8 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
 import { LayoutDashboard, Settings, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { style } from "framer-motion/client";
 
-const EmployeeSidebar = ({ open, toggleSidebar }) => {
+const EmployeeSidebar = ({ open, toggleSidebar,onLogoutClick }) => {
   const sidebarRef = useRef(null);
   const navigate = useNavigate();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -46,7 +47,7 @@ const EmployeeSidebar = ({ open, toggleSidebar }) => {
   const menuItems = [
     { title: "Dashboard", icon: <LayoutDashboard size={20} />, path: "/employee-dashboard" },
     { title: "Settings", icon: <Settings size={20} />, path: "/user-settings" },
-    { title: "Logout", icon: <LogOut size={20} />, onClick: handleLogoutClick, className: "logout-link text-white" },
+    { title: "Logout", icon: <LogOut size={20} />, onClick: onLogoutClick, className: "logout-link text-white"},
   ];
 
   return (

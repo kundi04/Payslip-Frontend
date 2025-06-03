@@ -10,6 +10,7 @@ import Employees from "./pages/Employees";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import EmployeeSidebar from "./components/EmployeeSidebar";
 import SuperUser from "./pages/SuperUser";
+import SuperUserSidebar from "./components/SuperUserSidebar";
 import Settings from './pages/Settings';
 import Payslips from "./pages/Payslips"
 import AdminSettings from './pages/AdminSettings';
@@ -23,42 +24,134 @@ const AppContent = () => {
     setIsSidebarOpen((prevState) => (state !== undefined ? state : !prevState));
   };
 
-  const showLayout = 
-    location.pathname.startsWith("/admin-dashboard") || 
-    location.pathname.startsWith("/employees") || 
-    location.pathname.startsWith("/employee-dashboard") || 
-    location.pathname.startsWith("/payslips") || 
-    location.pathname.startsWith("/user-settings") ||
-    location.pathname.startsWith("/admin-settings")||
-    location.pathname.startsWith("/super-user");
 
 
+const isAdminPath = 
+  location.pathname.startsWith("/admin-dashboard") ||
+  location.pathname.startsWith("/employees") ||
+  location.pathname.startsWith("/payslips") ||
+  location.pathname.startsWith("/admin-settings") ||
+  location.pathname.startsWith("/super-user");
 
-  const handleClick = (e) => {
+const isEmployeePath =
+  location.pathname.startsWith("/employee-dashboard") ||
+  location.pathname.startsWith("/user-settings") ||
+  location.pathname.startsWith("/employee-details");
 
-    if (isSidebarOpen && !e.target.closest('.sidebar')) {
-      setIsSidebarOpen(false);
-    }
+  const isSuperUserPath = location.pathname.startsWith("/super-user") ||
+                        location.pathname.startsWith("/user-management") ||
+                        location.pathname.startsWith("/system-logs") ||
+                        location.pathname.startsWith("/database") ||
+                        location.pathname.startsWith("/system-health") ||
+                        location.pathname.startsWith("/configurations");
 
-    if (isSidebarOpen && !e.target.closest('.employee-sidebar')) {
-      setIsSidebarOpen(false);
-    }
 
-    if (isSidebarOpen && !e.target.closest('.SuperUserSidebar')) {
-      setIsSidebarOpen(false);
-    }
-  };
+const showLayout = isAdminPath || isEmployeePath || isSuperUserPath;
+
+
+const handleClick = (e) => {
+  if (
+    isSidebarOpen &&
+    !e.target.closest(".sidebar") &&
+    !e.target.closest(".employee-sidebar") &&
+    !e.target.closest(".SuperUserSidebar")
+  ) {
+    setIsSidebarOpen(false);
+  }
+};
+
+const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+const handleLogoutClick = () => {
+  setShowLogoutModal(true);
+};
+
+
 
   return (
-    <div className="app-container" onClick={handleClick}>
-      {showLayout && <Navbar toggleSidebar={toggleSidebar} />}
-      {showLayout && location.pathname.startsWith("/employee-dashboard") ? (
-        <EmployeeSidebar open={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      ) : showLayout ? (
-        <Sidebar open={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      ) : null}
+      <div className="app-container" onClick={handleClick}>
+    {showLayout && <Navbar toggleSidebar={toggleSidebar} />}
+    
+{showLayout && isEmployeePath ? (
+  <EmployeeSidebar
+    open={isSidebarOpen}
+    toggleSidebar={toggleSidebar}
+    onLogoutClick={handleLogoutClick}
+  />
+) : showLayout && isSuperUserPath ? (
+  <SuperUserSidebar
+    open={isSidebarOpen}
+    toggleSidebar={toggleSidebar}
+    onLogoutClick={handleLogoutClick}
+  />
+) : showLayout && isAdminPath ? (
+ <Sidebar
+  open={isSidebarOpen}
+  toggleSidebar={toggleSidebar}
+  onLogoutClick={handleLogoutClick}
+/>
 
-      <div className={`content ${isSidebarOpen ? 'content-shift' : ''}`}>
+) : null}
+
+
+{showLogoutModal && (
+  <div
+    className="custom-modal-backdrop"
+    style={{
+      position: "fixed",
+      top: 0, left: 0, right: 0, bottom: 0,
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      zIndex: 9999,
+    }}
+  >
+    <div
+      className="modal-content p-4 bg-white rounded shadow"
+      style={{
+        maxWidth: "400px",
+        width: "100%",
+        zIndex: 10000,
+        opacity: 1,
+        position: "relative",
+      }}
+    >
+      <h5 className="mb-3">Confirm Logout</h5>
+      <div className="border rounded p-2 mb-3 bg-light text-dark">
+        <strong>{localStorage.getItem("userName") || "User"}</strong>
+        <br />
+        <small>{localStorage.getItem("userEmail") || "user@example.com"}</small>
+      </div>
+
+      <p className="mb-3">Are you sure you want to logout?</p>
+
+      <div className="d-flex justify-content-end gap-2">
+        <button
+          className="btn btn-danger"
+          onClick={() => {
+            setShowLogoutModal(false);
+            localStorage.clear();
+            window.location.href = "/login";
+          }}
+        >
+          Yes, Logout
+        </button>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setShowLogoutModal(false)}
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
+
+
+
+    <div className={`content ${isSidebarOpen ? 'content-shift' : ''}`}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
