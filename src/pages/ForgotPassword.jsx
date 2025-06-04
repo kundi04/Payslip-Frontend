@@ -39,8 +39,8 @@ const ForgotPassword = () => {
     // Proceed to submit new password
   };
 
-  return (
-    <Container fluid className="login-container">
+  return ( 
+    <Container fluid className=" forgot-card align-items-center justify-content-center">
       <ParticlesBackground options={defaultParticlesOptions} />
       <Row className="h-100">
         <div className="text-center logo-f pt-2">

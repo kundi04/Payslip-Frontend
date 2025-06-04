@@ -11,6 +11,7 @@ import {
 } from 'react-bootstrap';
 import { FaFileUpload } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../pages/Payslips.css'; 
 
 const Payslips = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -114,47 +115,50 @@ const Payslips = () => {
   </Col>
 </Row>
 
-<Table striped bordered hover responsive>
-  <thead className=" text-white" >
-    <tr style={{ backgroundColor: '#007bff'}}>
-      <th>Employee Name</th>
-      <th>Employee ID</th>
-      <th>Department</th>
-      <th>Month & Year</th>
-      <th>Status</th>
-      <th>Date Issued</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {filteredPayslips.map((p) => (
-      <tr key={p.id}>
-        <td>{p.employeeName}</td>
-        <td>{p.employeeId}</td>
-        <td>{p.department}</td>
-        <td>{p.monthYear}</td>
-        <td>{p.status}</td>
-        <td>{p.dateIssued}</td>
-        <td>
-          <Button
-            variant="outline-primary"
-            size="sm"
-            className="me-1"
-            onClick={() => alert('Show payslip modal for ' + p.employeeName)}
-          >
-            View
-          </Button>
-          <Button variant="outline-warning" size="sm" className="me-1">
-            Resend
-          </Button>
-          <Button variant="outline-danger" size="sm">
-            Delete
-          </Button>
-        </td>
+<div className="table-responsive">
+  <Table className="modern-table" hover>
+    <thead className="head-table">
+      <tr>
+        <th>Employee Name</th>
+        <th>Employee ID</th>
+        <th>Department</th>
+        <th>Month & Year</th>
+        <th>Status</th>
+        <th>Date Issued</th>
+        <th>Actions</th>
       </tr>
-    ))}
-  </tbody>
-</Table>
+    </thead>
+    <tbody>
+      {filteredPayslips.map((p) => (
+        <tr key={p.id}>
+          <td>{p.employeeName}</td>
+          <td>{p.employeeId}</td>
+          <td>{p.department}</td>
+          <td>{p.monthYear}</td>
+          <td>{p.status}</td>
+          <td>{p.dateIssued}</td>
+          <td>
+            <Button
+              variant="warning"
+              size="sm"
+              className="me-1"
+              onClick={() => alert('Show payslip modal for ' + p.employeeName)}
+            >
+              View
+            </Button>
+            <Button variant="outline-warning" size="sm" className="me-1">
+              Resend
+            </Button>
+            <Button variant="outline-danger" size="sm">
+              Delete
+            </Button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </Table>
+</div>
+
 
 
       {/* Upload Modal */}

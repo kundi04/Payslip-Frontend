@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Card, Table, Modal, Button, Row, Col, Form } from 'react-bootstrap';
 import PageWrapper from '../components/PageWrapper';
 import { FaPlus } from 'react-icons/fa';
@@ -87,12 +87,11 @@ const Employees = () => {
               </Card.Body>
             </Card>
           </Col>
-          {/* You can add more ad-card widgets here if needed */}
         </Row>
 
         <Row className="mt-4 align-items-center">
           <Col md={6}>
-            <h5 className="table-title mt-2">Employee List</h5> {/* Using table-title */}
+            <h5 className="table-title mt-2">Employee List</h5> 
           </Col>
           <Col md={6}>
             <Row className="justify-content-end">
@@ -120,8 +119,8 @@ const Employees = () => {
         </Row>
 
         <div className="table-responsive">
-          <Table className="modern-table" hover> {/* Applying modern-table */}
-            <thead className="head-table"> {/* Applying head-table */}
+          <Table className="modern-table" hover> 
+            <thead className="head-table"> 
               <tr>
                 <th>Name</th>
                 <th>Department</th>
@@ -145,9 +144,12 @@ const Employees = () => {
                   <td>{emp.status}</td>
                   <td>{emp.lastpayslip}</td>
                   <td>
-                    <Button variant="warning" size="sm" className="rounded">
-                      View
-                    </Button>
+            <Link to={`/employee/${emp.id}`}>
+            <Button variant="warning" size="sm" className="rounded">
+              View
+            </Button>
+            </Link>
+
                   </td>
                 </tr>
               ))}

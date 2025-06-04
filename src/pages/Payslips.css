@@ -1,0 +1,22 @@
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  font-size: 0.95rem;
+
+  th, td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tr:hover {
+    background-color: #f6f9fc;
+  }
+}
+
+.head-table {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
